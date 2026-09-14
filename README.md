@@ -1,7 +1,7 @@
 ## 👤 Author
 
-**Emmanuel Adie Ushie**
-Fellowship in Cybersecurity and Digital Forensics
+**Emmanuel Adie Ushie**  
+Fellowship in Cybersecurity and Digital Forensics  
 International Cybersecurity and Digital Forensics Academy
 
 ---
