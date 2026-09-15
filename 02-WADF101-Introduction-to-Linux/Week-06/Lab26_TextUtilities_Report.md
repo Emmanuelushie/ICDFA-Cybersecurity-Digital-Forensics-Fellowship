@@ -131,8 +131,6 @@ Lab 26 developed practical competence in text utilities. The exercise connected 
 | Fig 9 | `Fig09_CLI_UniqDedupeAndCount_SortUniq_UniqC.png` | 26B |
 | Fig 10 | `Fig10_CLI_TrTranslateDeleteAndWcCounts_TrUpper_TrD_Wc.png` | 26C |
 
-*Place each screenshot inside `Screenshots/` using the exact filename shown above. The image links in the Methodology section will then resolve automatically.*
-
 ---
 
 ## Recommendations
