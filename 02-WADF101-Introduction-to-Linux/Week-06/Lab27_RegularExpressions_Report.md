@@ -125,7 +125,6 @@ Lab 27 developed practical competence in regular expressions. The exercise conne
 | Fig 12 | `Fig12_CLI_RegexQuantifiersAndCharacterClasses_StarPlus_Digits_Negated.png` | 27C |
 | Fig 13 | `Fig13_CLI_RegexAnchorsEmailPhonePattern_CaretDollar_ExtendedRegex.png` | 27D |
 
-*Place each screenshot inside `Screenshots/` using the exact filename shown above. The image links in the Methodology section will then resolve automatically.*
 
 ---
 
