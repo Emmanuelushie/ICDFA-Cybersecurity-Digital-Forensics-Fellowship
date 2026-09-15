@@ -297,8 +297,6 @@ Loopback addresses are local to each operating system instance. A service listen
 | Fig 9 | `Fig09_CLI_LogFileTextUtilities_Head_Tail_Wc_Grep.png` | 4B |
 | Fig 10 | `Fig10_CLI_LogSummaryPipelineAndRedirection_CutSortUniq_DateAppend.png` | 4B |
 
-Place each screenshot in the `Screenshots/` directory using the exact filename shown above. The relative Markdown image links in the methodology will then resolve automatically on GitHub.
-
 ---
 
 ## Recommendations
