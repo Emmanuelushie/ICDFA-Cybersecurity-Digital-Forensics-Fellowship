@@ -108,7 +108,11 @@ A filename is a directory entry rather than the file data itself. Hard links are
 
 ## Screenshot Reference
 
-Screenshot filenames in this rewritten report are professional placeholders derived from the embedded evidence in the source document. Rename exported images to match these links, or update the links to the filenames you select.
+| Figure | Filename | Lab |
+|---|---|---|
+| Fig 1 | `Fig01_CLI_HardLinkCreation_InodeVerification png` | 33 |
+| Fig 2 | `Fig02_CLI_SymbolicLinkCreation_BrokenTarget png` | 33 |
+
 
 ---
 
