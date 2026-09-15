@@ -135,7 +135,6 @@ Lab 28 developed practical competence in the vi editor. The exercise connected a
 | Fig 16 | `Fig16_CLI_ViSearchAndGlobalReplace_SlashSearch_PercentSg.png` | 28C |
 | Fig 17 | `Fig17_CLI_ViSaveAndExit_WWqQBang.png` | 28D |
 
-*Place each screenshot inside `Screenshots/` using the exact filename shown above. The image links in the Methodology section will then resolve automatically.*
 
 ---
 
