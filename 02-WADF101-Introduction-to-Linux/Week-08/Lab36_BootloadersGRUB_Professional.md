@@ -94,7 +94,11 @@ sudo update-grub
 ---
 
 ## Screenshot Reference
-
+| Figure | Filename | Lab |
+|---|---|---|
+| Fig 08 | `Fig08_CLI_GrubGeneratedConfig_Head png` | 36 |
+| Fig 09 | `Fig09_CLI_GrubDefaultAndScripts png` | 36 |
+| Fig 10 | `Fig10_CLI_UpdateGrub_Regeneration png` | 36 |
 
 ---
 
