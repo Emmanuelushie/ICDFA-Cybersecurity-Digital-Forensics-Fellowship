@@ -148,7 +148,6 @@ Lab 25 developed practical competence in finding files. The exercise connected a
 | Fig 5 | `Fig05_CLI_FindCombinedAndOrLogic_AndTxtMtime_OrCsv.png` | 25C |
 | Fig 6 | `Fig06_CLI_FindExecAndLocateUpdatedb_ExecWcL_Locate.png` | 25C |
 
-*Place each screenshot inside `Screenshots/` using the exact filename shown above. The image links in the Methodology section will then resolve automatically.*
 
 ---
 
