@@ -73,7 +73,7 @@ dmesg | less
 <img width="1366" height="662" alt="Fig05_CLI_BootTiming_SystemdAnalyze_Blame png" src="https://github.com/user-attachments/assets/1d9d6a5c-bc2c-4e50-bcc7-7e4272600c1a" />
 
 
-<img width="1366" height="662" alt="ig06_CLI_BootCriticalChain_SystemdAnalyze png" src="https://github.com/user-attachments/assets/54f5b264-f345-45dd-8705-fc6e17b3d22f" />
+<img width="1366" height="662" alt="Fig06_CLI_BootCriticalChain_SystemdAnalyze png" src="https://github.com/user-attachments/assets/54f5b264-f345-45dd-8705-fc6e17b3d22f" />
 
 
 <img width="1366" height="662" alt="Fig07_CLI_BootLogs_Journalctl_Dmesg png" src="https://github.com/user-attachments/assets/607bcc15-c477-4514-b73d-664748c1eb92" />
@@ -96,8 +96,13 @@ Boot duration was divided among firmware, bootloader, kernel, and userspace phas
 ---
 
 ## Screenshot Reference
+| Figure | Filename | Lab |
+|---|---|---|
+| Fig 05 | `Fig05_CLI_BootTiming_SystemdAnalyze_Blame png` | 35 |
+| Fig 06 | `Fig06_CLI_BootCriticalChain_SystemdAnalyze png` | 35 |
+| Fig 07 | `Fig07_CLI_BootLogs_Journalctl_Dmesg png` | 35 |
 
-Screenshot filenames in this rewritten report are professional placeholders derived from the embedded evidence in the source document. Rename exported images to match these links, or update the links to the filenames you select.
+
 
 ---
 
