@@ -269,8 +269,6 @@ The resulting findings provide a defensible starting point for system hardening 
 | Fig 7 | `Fig07_CLI_FirewallStatus_UfwStatusVerbose.png` | 7C |
 | Fig 8 | `Fig08_CLI_UpdatablePackages_AptListUpgradable.png` | 7C |
 
-*Place each screenshot inside the `Screenshots/` directory using the exact filename shown above. The image links in the Methodology section will then resolve automatically.*
-
 ---
 
 ## Recommendations
