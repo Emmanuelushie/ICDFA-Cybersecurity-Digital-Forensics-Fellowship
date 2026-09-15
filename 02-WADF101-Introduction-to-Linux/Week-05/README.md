@@ -3,7 +3,7 @@
 ## 👤 Author
 
 **Emmanuel Adie Ushie**  
-**Introduction to Linux I: WADF-2026-M02**  
+**WADF-2026-M02: Introduction to Linux**  
 **International Cybersecurity and Digital Forensics Academy**
 
 ## 📘 Overview
