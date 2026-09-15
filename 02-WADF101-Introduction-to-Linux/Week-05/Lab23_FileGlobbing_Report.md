@@ -106,7 +106,6 @@ Lab 23 developed practical competence in file globbing. The exercise connected a
 | Fig 1 | `Fig13_CLI_GlobbingPatternTests_Asterisk_QuestionMark_CharacterClasses.png` | 23 |
 | Fig 2 | `Fig14_CLI_BraceExpansionAndWildcardCopy_CpTxtBackup.png` | 23 |
 
-*Place each screenshot inside `Screenshots/` using the exact filename shown above.*
 
 ---
 
