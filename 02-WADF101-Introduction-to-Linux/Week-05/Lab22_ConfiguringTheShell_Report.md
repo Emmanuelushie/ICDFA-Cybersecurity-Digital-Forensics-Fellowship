@@ -148,8 +148,6 @@ Lab 22 developed practical competence in configuring the shell. The exercise con
 | Fig 9 | `Fig11_CLI_AliasListVerification_Alias.png` | 22 |
 | Fig 10 | `Fig12_CLI_ShellConfigurationEvidence_Supplementary.png` | 22 |
 
-*Place each screenshot inside `Screenshots/` using the exact filename shown above.*
-
 ---
 
 ## Recommendations
