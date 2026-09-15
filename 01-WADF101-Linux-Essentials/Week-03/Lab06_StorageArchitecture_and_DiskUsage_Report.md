@@ -249,7 +249,6 @@ The capacity investigation identified how storage was distributed across the lab
 | Fig 11 | `Fig11_CLI_DiskCapacityAndFolderSizes_DfH_DuSh_DuMaxDepth.png` | 6C |
 | Fig 12 | `Fig12_CLI_LargestFilesAndHiddenFiles_FindPrintf_LsLa.png` | 6C |
 
-Place each screenshot in `Screenshots/` using the exact filename above so that the relative Markdown links resolve on GitHub.
 
 ---
 
