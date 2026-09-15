@@ -135,8 +135,6 @@ Lab 24 developed practical competence in file manipulation. The exercise connect
 | Fig 4 | `Fig18_CLI_MoveAndRenameEvidence_Mv.png` | 24 |
 | Fig 5 | `Fig19_CLI_DeletionEvidence_Rm_RmI_RmR.png` | 24 |
 
-*Place each screenshot inside `Screenshots/` using the exact filename shown above.*
-
 ---
 
 ## Recommendations
