@@ -514,8 +514,6 @@ The investigation pipeline transformed controlled authentication records into st
 | Fig 23 | `Fig23_CLI_ArchiveRestoreToBackup_TarXvf.png` | 8D |
 | Fig 24 | `Fig24_CLI_RestoreVerification_LsBackup.png` | 8D |
 
-Place each screenshot in the `Screenshots/` directory using the exact filename shown above. The relative Markdown image links will then resolve automatically on GitHub.
-
 ---
 
 ## Recommendations
