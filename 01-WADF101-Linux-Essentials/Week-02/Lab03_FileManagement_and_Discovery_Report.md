@@ -295,8 +295,6 @@ The discovery exercise established an important distinction between wildcards an
 | Fig 5 | `Fig05_CLI_WildcardVsFind_EchoGlob_FindName.png` | 3C |
 | Fig 6 | `Fig06_CLI_FindBySizeAndDate_FindSize_Mtime.png` | 3C |
 
-Place each screenshot in the `Screenshots/` directory using the exact filename shown above. The relative Markdown image links in the methodology will then resolve automatically on GitHub.
-
 ---
 
 ## Recommendations
