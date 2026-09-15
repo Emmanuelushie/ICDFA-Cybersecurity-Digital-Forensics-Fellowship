@@ -110,8 +110,8 @@ A filename is a directory entry rather than the file data itself. Hard links are
 
 | Figure | Filename | Lab |
 |---|---|---|
-| Fig 1 | `Fig01_CLI_HardLinkCreation_InodeVerification png` | 33 |
-| Fig 2 | `Fig02_CLI_SymbolicLinkCreation_BrokenTarget png` | 33 |
+| Fig 01 | `Fig01_CLI_HardLinkCreation_InodeVerification png` | 33 |
+| Fig 02 | `Fig02_CLI_SymbolicLinkCreation_BrokenTarget png` | 33 |
 
 
 ---
