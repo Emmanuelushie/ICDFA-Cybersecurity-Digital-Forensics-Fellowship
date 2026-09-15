@@ -87,8 +87,12 @@ The inventory represented devices exposed to the guest, not necessarily the host
 ---
 
 ## Screenshot Reference
+| Figure | Filename | Lab |
+|---|---|---|
+| Fig 03 | `Fig03_CLI_HardwareInventory_Lscpu_Free_Lsblk png` | 34 |
+| Fig 04 | `Fig04_CLI_DeviceInventory_Lsusb_Lspci_Dmidecode png` | 34 |
 
-Screenshot filenames in this rewritten report are professional placeholders derived from the embedded evidence in the source document. Rename exported images to match these links, or update the links to the filenames you select.
+
 
 ---
 
