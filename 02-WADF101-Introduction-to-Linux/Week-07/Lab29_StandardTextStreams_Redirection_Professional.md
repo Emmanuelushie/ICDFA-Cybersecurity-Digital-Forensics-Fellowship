@@ -133,8 +133,6 @@ Pipelines supported efficient transformation without manually saving each interm
 | Fig 1 | `Fig01_CLI_StdoutRedirectionAndAppend_EchoRedirect_AppendRedirect.png` | 29A |
 | Fig 2 | `Fig02_CLI_StderrCaptureCombinedStreamsAndPipelines_2Redirect_Tee.png` | 29B–29C |
 
-Place each screenshot in `Screenshots/` using the exact filename shown above.
-
 ---
 
 ## Recommendations
