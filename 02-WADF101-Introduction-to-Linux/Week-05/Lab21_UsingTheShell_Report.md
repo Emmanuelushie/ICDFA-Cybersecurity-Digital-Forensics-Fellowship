@@ -95,8 +95,6 @@ Lab 21 developed practical competence in using the shell. The exercise connected
 | Fig 1 | `Fig01_CLI_ShellIdentificationAndListing_EchoShell_Pwd_Ls.png` | 21 |
 | Fig 2 | `Fig02_CLI_PathNavigationAndHistory_CdTilde_CdDotDot_History.png` | 21 |
 
-*Place each screenshot inside `Screenshots/` using the exact filename shown above.*
-
 ---
 
 ## Recommendations
