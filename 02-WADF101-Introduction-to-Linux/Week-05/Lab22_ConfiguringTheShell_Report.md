@@ -6,7 +6,7 @@
 |---|---|
 | Student Name | Emmanuel Adie Ushie |
 | Student ID | C11/26/ICDF/17173 |
-| Course | Introduction to Linux I — WADF-2026-M02 |
+| Course | WADF-2026-M02: Introduction to Linux |
 | Instructor | Mr. Udam Akume Gabriel |
 | Week | Week 05 |
 | Lab | Lab 22 — Configuring the Shell |
