@@ -285,7 +285,6 @@ The inventory activity produced a consolidated snapshot of the VM's hardware and
 | Fig 5 | `Fig05_CLI_DiskAndNetworkInventory_DfHT_IpBrLink.png` | 5C |
 | Fig 6 | `Fig06_CLI_VirtualizationDetection_SystemdDetectVirt_InventoryFile.png` | 5C |
 
-Place each screenshot in `Screenshots/` using the exact filename above so that the relative Markdown links resolve on GitHub.
 
 ---
 
