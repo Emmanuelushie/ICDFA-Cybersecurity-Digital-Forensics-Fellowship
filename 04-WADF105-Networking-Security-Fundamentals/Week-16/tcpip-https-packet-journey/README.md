@@ -14,7 +14,7 @@ It explains what happens at each TCP/IP layer, which protocols are involved, how
 
 ## Team Members
 
-| # | Name | Registration No. |
+|  | Name | Registration No. |
 |---|------|------------------|
 | 1 | Emmanuel Adie Ushie (Team Lead) | C11/26/FCDF/17173 |
 | 2 | Abubakar Bello Sadiq | C11/26/FCDF/17161 |
