@@ -1,0 +1,511 @@
+TECHNICAL REPORT
+TRACING A SECURE TCP/IP COMMUNICATION: OPENING AN HTTPS WEBSITE
+
+Team 05
+International Cybersecurity & Digital Forensics Academy (ICDFA)
+Session 2026
+
+======================================================================
+TEAM MEMBERS
+======================================================================
+
+Emmanuel Adie Ushie (Team Lead)        C11/26/FCDF/17173
+Abubakar Bello Sadiq                   C11/26/FCDF/17161
+Adeyemo Adetoye                        C11/26/FCDF/17140
+Nokukhanya Tenza                       C11/26/FCDF/17149
+Vugomi Rhulani Mathye                  C11/26/FCDF/17157
+
+======================================================================
+INTRODUCTION
+======================================================================
+
+OBJECTIVE
+
+This report explains how information travels across a network when a user
+opens a secure website. Acting as junior network analysts, Team 05 traces
+the complete communication process through the TCP/IP model and addresses
+the central question:
+
+    How does a single browser click become a secure web page?
+
+The analysis follows the communication from domain-name resolution and
+connection establishment through encryption, routing, local delivery,
+decapsulation, and presentation of the requested web content.
+
+SCENARIO PARAMETERS
+
+Client IP address:        192.168.1.10
+Default gateway:          192.168.1.1
+Web server IP address:    93.184.216.34
+Client ephemeral port:    51342
+HTTPS server port:        443
+DNS port:                 53 (UDP)
+Example domain:           portal.company.com
+Encryption protocol:      TLS 1.3
+
+SCOPE
+
+The report covers the responsibilities of the TCP/IP layers, their
+relationship to the OSI model, the protocols involved in secure web
+communication, encapsulation and decapsulation, IP and MAC addressing,
+port numbers, network devices, TCP and UDP characteristics, and the
+methodical diagnosis of a realistic HTTPS communication failure.
+
+======================================================================
+THE TCP/IP MODEL AND OSI MAPPING
+======================================================================
+
+The TCP/IP model consists of four layers. Each layer performs a distinct
+function and handles a specific Protocol Data Unit (PDU).
+
+APPLICATION LAYER
+PDU: Data
+Role: Prepares user data and supports services such as DNS, HTTP, and TLS.
+OSI mapping: Application, Presentation, and Session layers.
+
+TRANSPORT LAYER
+PDU: Segment
+Role: Manages end-to-end communication, port numbers, connection state,
+sequencing, flow control, acknowledgements, and retransmission.
+OSI mapping: Transport layer.
+
+INTERNET LAYER
+PDU: Packet
+Role: Applies logical IP addressing and routes packets between networks.
+OSI mapping: Network layer.
+
+NETWORK ACCESS LAYER
+PDU: Frame
+Role: Provides local-link delivery through Ethernet or Wi-Fi and transmits
+bits through the physical medium.
+OSI mapping: Data Link and Physical layers.
+
+The TCP/IP model combines the presentation and session functions within
+its Application layer. This produces a more compact, implementation-focused
+architecture than the seven-layer OSI reference model.
+
+======================================================================
+APPLICATION LAYER: BUILDING THE SECURE REQUEST
+======================================================================
+
+DNS RESOLUTION
+
+Before the browser can contact the web server, it must translate the
+human-readable domain name portal.company.com into an IP address. A DNS
+query is normally sent using UDP destination port 53. The DNS response
+provides the IP address required to begin communication with the server.
+
+PDU: DNS message
+Transport protocol: UDP
+Destination port: 53
+
+HTTP REQUEST CONSTRUCTION
+
+After resolving the domain, the browser prepares an HTTP request. The
+request contains the method, target resource, host identifier, browser
+information, accepted content types, and other relevant headers.
+
+Example request:
+
+    GET / HTTP/1.1
+    Host: portal.company.com
+
+TLS 1.3 PROTECTION
+
+HTTPS protects HTTP communication with TLS. The client and server first
+complete the required TLS negotiation, including server authentication
+and the establishment of shared cryptographic keys. The browser then
+sends the HTTP request within encrypted TLS application data.
+
+Destination port: 443
+Payload: Encrypted TLS record containing HTTP data
+
+======================================================================
+TRANSPORT AND INTERNET LAYER OPERATIONS
+======================================================================
+
+TCP CONNECTION ESTABLISHMENT
+
+HTTPS in this scenario uses TCP. Before TLS application data can be
+exchanged, the client and server establish a reliable connection through
+the TCP three-way handshake.
+
+SYN
+The client selects an Initial Sequence Number and sends a TCP segment with
+the SYN flag set.
+
+SYN-ACK
+The server acknowledges the client's sequence number and supplies its own
+sequence number.
+
+ACK
+The client acknowledges the server's sequence number. The TCP connection
+is then ready to support the TLS exchange.
+
+HEADERS ADDED DURING PACKAGING
+
+At the Transport layer, TCP adds the client source port 51342 and the
+server destination port 443, producing a TCP segment.
+
+At the Internet layer, IP adds the source address 192.168.1.10 and the
+destination address 93.184.216.34, producing an IP packet.
+
+Routers examine the destination IP address to make forwarding decisions.
+The TCP port information and encrypted application payload are intended
+for end-to-end processing rather than routing decisions.
+
+======================================================================
+PACKET JOURNEY: ENCAPSULATION AND DECAPSULATION
+======================================================================
+
+NETWORK PATH
+
+    Client Browser
+    192.168.1.10
+          |
+          v
+    LAN Switch
+    Layer 2 forwarding
+          |
+          v
+    Default Gateway
+    192.168.1.1
+          |
+          v
+    ISP and Internet Routers
+    IP routing across interconnected networks
+          |
+          v
+    Destination Router and Switch
+          |
+          v
+    Web Server
+    93.184.216.34:443
+
+The server response follows a return path to the client. The exact route
+may differ because Internet routing is not required to be symmetrical.
+
+SENDER ENCAPSULATION
+
+    HTTP data protected by TLS
+              |
+              v
+    TCP segment
+    Source port 51342, destination port 443
+              |
+              v
+    IP packet
+    Source IP 192.168.1.10, destination IP 93.184.216.34
+              |
+              v
+    Ethernet or Wi-Fi frame
+    Client MAC address, next-hop MAC address
+
+RECEIVER DECAPSULATION
+
+At the destination, the server's network interface processes the incoming
+frame and passes the extracted IP packet upward. The Internet layer checks
+the packet, TCP validates and reassembles the segment stream, and TLS
+processes and decrypts the protected application data. The resulting HTTP
+request is then delivered to the web-server application.
+
+RETURN COMMUNICATION
+
+The web server prepares an HTTP response, protects it with TLS, and sends
+it back through the TCP connection. The response is encapsulated for each
+relevant layer, routed across the Internet, and decapsulated by the client
+before the browser renders the secure webpage.
+
+NETWORK DEVICES AND THEIR ROLES
+
+Client browser
+Builds the request, performs DNS resolution and TLS negotiation, and
+initiates the TCP session.
+
+LAN switch
+Forwards local frames according to destination MAC addresses.
+
+Default gateway
+Provides the first routed hop outside the local network and creates a new
+link-layer frame for the next connection.
+
+ISP and Internet routers
+Forward IP packets toward the destination network using routing
+information.
+
+Destination router and switch
+Deliver the traffic through the destination network to the server's
+network interface.
+
+Web server
+Listens on TCP port 443, participates in TLS, processes the HTTP request,
+and returns the requested response.
+
+======================================================================
+NETWORK ACCESS LAYER: LOCAL DELIVERY AND ARP
+======================================================================
+
+LAYER 2 FRAMING
+
+The Network Access layer places the IP packet inside an Ethernet or Wi-Fi
+frame for transmission across the local link. An Ethernet frame contains
+source and destination MAC addresses. Its Frame Check Sequence uses a
+Cyclic Redundancy Check to detect corruption in the frame.
+
+HOP-BY-HOP DELIVERY
+
+Link-layer headers and trailers are removed and rebuilt as traffic moves
+between router interfaces. Therefore, the source and destination MAC
+addresses normally change from one local link to the next. The source and
+destination IP addresses generally remain associated with the end hosts,
+although an edge device performing Network Address Translation may modify
+an address and relevant transport information.
+
+ADDRESS RESOLUTION PROTOCOL
+
+The client knows the default gateway's IP address, 192.168.1.1, but needs
+the gateway interface's MAC address to transmit a local frame. If the
+mapping is not already cached, the client broadcasts an ARP request on the
+local network:
+
+    Who has 192.168.1.1? Tell 192.168.1.10.
+
+The Ethernet broadcast destination is FF:FF:FF:FF:FF:FF. The router sends
+an ARP reply containing its MAC address, and the client stores the mapping
+in its ARP cache for local frame delivery.
+
+======================================================================
+PROTOCOL ANALYSIS
+======================================================================
+
+DNS
+Layer: Application
+PDU: Message
+Addressing information: Domain name and resolved IP address
+Purpose: Resolves the website's domain name before the client contacts the
+server.
+
+HTTP OVER TLS (HTTPS)
+Layer: Application
+PDU: Data
+Addressing information: Relies on lower-layer ports and addresses
+Purpose: Carries the web request and response while TLS protects the data.
+
+TCP
+Layer: Transport
+PDU: Segment
+Addressing information: Source port 51342 and destination port 443
+Purpose: Provides reliable, ordered, connection-oriented delivery.
+
+IP
+Layer: Internet
+PDU: Packet
+Addressing information: Source and destination IP addresses
+Purpose: Supports logical addressing and routing across networks.
+
+ETHERNET OR WI-FI
+Layer: Network Access
+PDU: Frame
+Addressing information: Source and destination MAC addresses
+Purpose: Provides delivery across a local network link.
+
+======================================================================
+IP ADDRESSES AND MAC ADDRESSES
+======================================================================
+
+MAC ADDRESS
+
+A MAC address operates at the Network Access layer and identifies a
+network interface for local-link communication. A conventional Ethernet
+MAC address is 48 bits and is commonly written as twelve hexadecimal
+digits, for example 00:1A:2B:3C:4D:5E. It is used for frame delivery on a
+local segment and is not used by Internet routers as an end-to-end routing
+address.
+
+IP ADDRESS
+
+An IP address operates at the Internet layer and provides a logical,
+hierarchical address for routing. The example client address
+192.168.1.10/24 contains network and host information determined by its
+subnet prefix. IP configuration may be assigned manually or supplied
+dynamically through DHCP.
+
+KEY DISTINCTION
+
+The IP address enables communication between networks, while the MAC
+address enables frame delivery across the current local link.
+
+======================================================================
+PORT NUMBERS
+======================================================================
+
+PORT 53: DNS
+Used for DNS queries and responses. DNS commonly uses UDP, while TCP is
+also supported when required by the protocol or message conditions.
+
+PORT 443: HTTPS
+Identifies secure web communication in this scenario. HTTP data is
+protected with TLS over the TCP connection.
+
+PORT 51342: CLIENT EPHEMERAL PORT
+A temporary client-side port that identifies the client's endpoint for
+this communication session.
+
+Ports identify application endpoints on a host. The destination IP address
+identifies the target host or network interface, while the destination
+port directs the traffic to the appropriate service on that host.
+
+======================================================================
+TCP AND UDP
+======================================================================
+
+TCP CHARACTERISTICS
+
+- Connection-oriented communication
+- Three-way handshake before application data exchange
+- Reliable delivery through acknowledgements and retransmission
+- Ordered byte-stream delivery using sequence numbers
+- Flow and congestion control
+- Greater protocol overhead than UDP
+- PDU commonly called a segment
+
+TCP is suitable for HTTPS and email because complete, correctly ordered
+data delivery is important.
+
+UDP CHARACTERISTICS
+
+- Connectionless communication
+- No transport-layer handshake
+- No built-in delivery guarantee or retransmission
+- No guaranteed ordering
+- Lower protocol overhead
+- Eight-byte header
+- PDU commonly called a datagram
+
+UDP is suitable for many DNS exchanges and real-time voice or video, where
+low delay can be more valuable than transport-layer retransmission.
+
+DESIGN PRIORITIES
+
+TCP prioritises reliable, ordered delivery. UDP prioritises minimal
+transport overhead and low delay, leaving any required reliability or
+ordering mechanisms to the application.
+
+======================================================================
+TROUBLESHOOTING AN HTTPS COMMUNICATION FAILURE
+======================================================================
+
+OBSERVED ERROR
+
+An employee attempts to access portal.company.com, but the browser displays
+"Your connection is not private" with the error NET::ERR_CERT_DATE_INVALID.
+Other web traffic and email continue to function.
+
+DIAGNOSTIC OBJECTIVE
+
+The objective is to isolate the failing component systematically rather
+than assume that the entire network is unavailable.
+
+DIAGNOSTIC PROCESS
+
+Physical and interface status
+Tool: ip link or ifconfig
+Result: The network interface is operational.
+
+Local IP connectivity
+Tool: ping to the default gateway
+Result: The gateway is reachable.
+
+DNS resolution
+Tool: nslookup
+Result: The domain resolves to an IP address.
+
+TCP port reachability
+Tool: nc or telnet to destination port 443
+Result: TCP port 443 is reachable.
+
+TLS certificate inspection
+Tool: openssl s_client
+Result: The certificate is reported as expired.
+
+DIAGNOSIS
+
+The successful lower-layer checks indicate that local connectivity, IP
+communication, DNS resolution, and TCP reachability are operating. The
+reported certificate condition identifies the failure in the TLS server-
+authentication process: the server certificate has expired.
+
+REMEDIATION
+
+- Obtain a valid replacement certificate from the appropriate trusted
+  Certificate Authority.
+- Install the renewed server certificate and the required certificate
+  chain on the web server.
+- Reload or restart the relevant web service as required by its
+  configuration.
+- Verify the deployed certificate and chain with openssl s_client and a
+  supported web browser.
+
+Example validation command:
+
+    openssl s_client -connect portal.company.com:443         -servername portal.company.com
+
+======================================================================
+TEAM CONTRIBUTION RECORD
+======================================================================
+
+Emmanuel Adie Ushie
+Assigned role: Team Lead
+Completed work and evidence: To be completed
+
+Abubakar Bello Sadiq
+Assigned role: To be completed
+Completed work and evidence: To be completed
+
+Adeyemo Adetoye
+Assigned role: To be completed
+Completed work and evidence: To be completed
+
+Nokukhanya Tenza
+Assigned role: To be completed
+Completed work and evidence: To be completed
+
+Vugomi Rhulani Mathye
+Assigned role: To be completed
+Completed work and evidence: To be completed
+
+Each member will also submit an individual contribution declaration through
+the course portal. Evidence may include repository commit links,
+presentation slide numbers, or submitted file names.
+
+======================================================================
+CONCLUSION
+======================================================================
+
+Opening a secure website requires coordinated interaction across every
+layer of the TCP/IP model. DNS resolves the website name, TCP creates a
+reliable transport connection, TLS authenticates the server and protects
+the HTTP data, IP routes packets between networks, and the Network Access
+layer delivers frames across each local link.
+
+Encapsulation allows every layer to add the information needed for its
+specific responsibility. At the destination, decapsulation reverses that
+process and delivers the protected request to the web application. A
+structured troubleshooting method can identify whether a failure relates
+to the physical connection, IP connectivity, name resolution, transport
+reachability, or TLS security.
+
+======================================================================
+REFERENCES
+======================================================================
+
+- IETF RFC 8446, The Transport Layer Security (TLS) Protocol Version 1.3.
+- IETF RFC 793, Transmission Control Protocol.
+- Cisco Networking Academy, CCNA: Introduction to Networks.
+- ICDFA Network Security Fundamentals, Module 03: Network Devices, Media,
+  Ethernet and ARP.
+
+----------------------------------------------------------------------
+Team 05
+International Cybersecurity & Digital Forensics Academy (ICDFA)
+Session 2026
