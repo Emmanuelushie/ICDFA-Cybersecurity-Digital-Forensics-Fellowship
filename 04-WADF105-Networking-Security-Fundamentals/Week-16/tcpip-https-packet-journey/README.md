@@ -48,7 +48,7 @@ A user at `192.168.1.10` opens `https://portal.company.com`. The request travels
 ---  
 
 ## Video Presentation Link   
-https://shorturl.at/s2Ywm  
+  https://shorturl.at/Nr5Df
 
 ## Packet Journey (Diagram)
 
