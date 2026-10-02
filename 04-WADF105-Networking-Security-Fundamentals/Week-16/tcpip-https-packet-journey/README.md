@@ -45,6 +45,11 @@ A user at `192.168.1.10` opens `https://portal.company.com`. The request travels
 | 5 | Receiver | Frame stripped, packet extracted, TCP segments reassembled, TLS payload decrypted into the HTTP GET |
 | 6 | Return path | The server's response is encapsulated the same way in reverse and decapsulated by the client's browser |
 
+---  
+
+Video Presentation Link
+https://shorturl.at/s2Ywm  
+
 ## Packet Journey (Diagram)
 
 ```mermaid
