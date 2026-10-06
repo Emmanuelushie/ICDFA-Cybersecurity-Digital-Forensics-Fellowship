@@ -237,18 +237,16 @@ When the Ubuntu client was first tested, the LAN worked but nothing beyond the f
 | `getent hosts opnsense.org` | Failed: no result |
 | `curl` to opnsense.org | Failed: "Could not resolve host" |
 
-![T1 Initial failed connectivity tests](screenshots/lab01/T1_initial_failed_tests.png)
 
 *Figure T1: The initial tests show the gateway answering but the internet and DNS tests failing.*
 
 ### 9.2 Diagnosis
 
 1. The "Destination Host Unreachable" message came from the firewall itself (10.10.10.1), which showed that Ubuntu was working and that the firewall had no usable route to the internet.
-2. The OPNsense console initially showed the WAN interface (em1) without an IPv4 address. [EDIT: describe what you changed so that the WAN received 10.0.3.15, for example correcting the adapter assignment or reconnecting the cable.] The WAN then obtained 10.0.3.15/24 by DHCP.
+2. The OPNsense console initially showed the WAN interface (em1) without an IPv4 address. I correct the adapter assignment. The WAN then obtained 10.0.3.15/24 by DHCP.
 3. A ping to 1.1.1.1 from the firewall console (option 7) still failed with "No route to host".
 4. In the firewall shell, `netstat -rn -f inet` showed **no default IPv4 route**. A single host route to 192.168.0.1 via 10.0.3.2 appeared, which is outside the 10.0.3.0/24 WAN subnet and could not serve as a default route.
 
-![T2 Firewall routing table without default route](screenshots/lab01/T2_firewall_routing_table.png)
 
 *Figure T2: The firewall IPv4 routing table has no default route, which explains the "No route to host" error.*
 
@@ -263,9 +261,7 @@ A pre-configured upstream gateway from the laboratory image (`VROUTER_GW`, 172.1
 1. Edited `WAN_DHCP` (10.0.3.2) and ticked **Upstream Gateway**.
 2. Edited `VROUTER_GW` and ticked **Disabled**.
 3. Clicked **Apply**.
-4. [As a temporary measure before the permanent fix, I added a default route in the firewall shell with `route add default 10.0.3.2`."]
 
-![T3 Corrected gateway configuration](screenshots/lab01/T3_gateway_configuration_fixed.png)
 
 *Figure T3: WAN_DHCP is now the active upstream gateway and VROUTER_GW is disabled.*
 
@@ -320,7 +316,6 @@ During the laboratory I diagnosed and corrected a routing fault caused by an unr
 | E5 | Successful gateway, internet and DNS tests
 | E6 | Wireshark ARP, ICMP and DNS views with filters visible
 | E7 | Default gateway explanation | [x] Section 8 |
-| T1 to T3 | Troubleshooting screenshots (optional supporting evidence)
 
 ---
 
