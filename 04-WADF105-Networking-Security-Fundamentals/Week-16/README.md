@@ -148,7 +148,6 @@ Full detail: [Lab02_Report.md](Lab02_Report.md)
 | E5 | Gateway, internet and DNS tests | `screenshots/lab01/E5_connectivity_tests.png` |
 | E6 | Wireshark ARP, ICMP and DNS | `screenshots/lab01/E6a_...`, `E6b_...`, `E6c_...` |
 | E7 | Default gateway explanation | Section 8 of `Lab01_Report.md` |
-| T1 to T3 | Troubleshooting evidence | `screenshots/lab01/T1_...` to `T3_...` |
 
 ### Laboratory 2
 
@@ -162,7 +161,6 @@ Full detail: [Lab02_Report.md](Lab02_Report.md)
 | E6 | Wireshark: blocked ICMP and HTTP, permitted HTTPS | `screenshots/lab02/E6a_...`, `E6b_...`, `E6c_...` |
 | E7 | State table and NAT mode | `screenshots/lab02/E7_...`, `E7b_...` |
 | E8 | Rules disabled and connectivity restored | `screenshots/lab02/E8a_...`, `E8b_...` |
-| T1, T2 | Troubleshooting evidence | `screenshots/lab02/T1_...`, `T2_...` |
 
 ---
 
