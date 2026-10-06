@@ -8,7 +8,7 @@
 | --- | --- |
 | **Student** | Emmanuel Adie Ushie |
 | **Student ID** | C11/26/ICDF/17173 |
-| **Instructor** | Mr. Udam Akume Gabriel |
+| **Instructor** | Mr. Aminu Idris |
 | **Course** | WADF105 Network Security Fundamentals |
 | **Environment** | Oracle VirtualBox, authorised ICDFA laboratory only |
 
