@@ -115,9 +115,6 @@ Full detail: [Lab02_Report.md](Lab02_Report.md)
     │   ├── E6a_wireshark_arp.png
     │   ├── E6b_wireshark_icmp.png
     │   ├── E6c_wireshark_dns.png
-    │   ├── T1_initial_failed_tests.png
-    │   ├── T2_firewall_routing_table.png
-    │   └── T3_gateway_configuration_fixed.png
     └── lab02/
         ├── E1_baseline_tests.png
         ├── E2_lan_rules_order.png
@@ -131,8 +128,6 @@ Full detail: [Lab02_Report.md](Lab02_Report.md)
         ├── E7b_outbound_nat_mode.png
         ├── E8a_rules_disabled.png
         ├── E8b_restored_tests.png
-        ├── T1_icmp_passed_rule_order.png
-        └── T2_live_view_pass_entry.png
 ```
 
 ## 6. Evidence Index
